@@ -1,0 +1,13 @@
+h1 {
+    color: pink;
+}
+
+p {
+    text-decoration: line-through;
+    color: blue;
+}
+
+/* 
+i {
+    color: rebeccapurple !important; Dont do this 
+} */

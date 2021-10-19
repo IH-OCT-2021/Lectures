@@ -1,0 +1,47 @@
+body {
+    background-color: red;
+    display:flex;
+    flex-direction: column;
+    margin:0 100px;
+    padding: 50px;
+    border: 1px solid yellow;
+}
+
+h1{
+    color: greenyellow;
+    font-size:50px;
+}
+
+
+.box-container{
+    display:flex;
+    background: #ddd;
+    justify-content:space-evenly;
+    align-items:center;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    /* height: 200px; */
+}
+
+.box-container div {
+    margin: 50px;
+    color:white;
+    font-size:30px;
+    background: peachpuff;
+    border: 5px solid white;
+    width: 100px;
+    height:  100px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+ #d{
+    flex:1;
+}
+
+ #e{
+    flex:3;
+}
+

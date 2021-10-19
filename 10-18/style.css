@@ -1,13 +1,81 @@
+
+* {
+    transition: all .3s;
+    /* border: 1px dashed black; */
+}
+
+body {
+    height: 2000px;
+}
+
 h1 {
     color: pink;
 }
+
 
 p {
     text-decoration: line-through;
     color: blue;
 }
 
+p:hover{
+    background:hotpink;
+}
+
 /* 
 i {
     color: rebeccapurple !important; Dont do this 
 } */
+
+
+
+main{ 
+    background-color:#C8A2C8;
+    padding: 20px;
+    margin: 15px; 
+    border: 5px solid yellow;
+  
+}
+
+main:hover {
+    transform:rotate(70deg)
+}
+
+
+
+main b {
+    color:blue;
+}
+
+.redParagraph{
+    background:red;
+}
+
+nav ul {
+    display:flex;
+    justify-content:space-between;
+
+}
+nav{
+    margin:0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+
+nav ul {
+    padding: 0;
+}
+
+nav ul li{
+    padding: 20px;
+    width: 33%;
+    background: #eee;
+    text-align:center;
+    list-style-type: none;
+    margin: 10px;
+    color: purple
+}
+

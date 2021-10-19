@@ -1,0 +1,31 @@
+body {
+    background-color: blue;
+}
+
+h1{
+    color: orange;
+    font-size:50px;
+}
+
+
+
+.box-container{
+    display:flex;
+    background: #ddd;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    
+}
+
+.box-container div {
+    color:white;
+    font-size:30px;
+    background: peachpuff;
+    border: 5px solid white;
+    width: 100vw;
+    height: 100vw;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}

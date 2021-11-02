@@ -1,0 +1,19 @@
+*{
+    transition: all .5s;
+}
+
+li{ 
+    margin: 1rem;
+}
+h3{ display: inline}
+
+button{
+    padding: 1rem;
+    outline: none;
+    border:none;
+    background: #ddd;
+}
+
+button.active{
+    background:coral;
+}

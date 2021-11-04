@@ -14,10 +14,16 @@ const ctx = canvas.getContext("2d")
 let hero = {
     x: 0,
     y: 0,
-    w: 10,
-    h: 10
+    w: 150,
+    h: 150
 }
 
+
+let hulk = new Image()
+hulk.src = 'https://i.pinimg.com/originals/d7/85/9a/d7859a2b7f23a50f5d41181736ddf037.png'
+hulk.onload = () => {
+    ctx.drawImage(hulk, 0, 0, 150, 150)
+}
 
 
 //Listening to you pressing your arrow keys
@@ -100,7 +106,9 @@ function animate() {
 
     //Draw Hero
     ctx.fillStyle = 'red'
-    ctx.fillRect(hero.x, hero.y, hero.w, hero.h) //x, y, w, h
+    //ctx.fillRect(hero.x, hero.y, hero.w, hero.h) //x, y, w, have
+    ctx.drawImage(hulk, hero.x, hero.y, hero.w, hero.h)
+
 
     //Draw Enemies
     ctx.fillStyle = 'purple'
@@ -123,7 +131,7 @@ function detectCollision(rect1, rect2) {
         rect1.h + rect1.y > rect2.y) {
         console.log('collision')
         window.cancelAnimationFrame(int)
-        window.location.reload()
+        // window.location.reload()
     }
     // collision detected!
 }

@@ -83,6 +83,7 @@ function swapSanta() {
                 santa.img.src = 'santaWalkLeft.png'
                 santa.frames = 13
                 santa.x -= 5
+                santa.direction = 'left'
             }
         }
         if (key === "ArrowRight") {
@@ -90,6 +91,7 @@ function swapSanta() {
                 santa.img.src = 'santaWalk.png'
                 santa.x += 5
                 santa.frames = 13
+                santa.direction = 'right'
             }
         }
 
@@ -101,13 +103,13 @@ window.onkeyup = function (e) {
     if (santa.direction == 'right') {
         santa.img.src = 'santaIdle.png'
         santa.frames = 16
-        santa.direction = 'left'
+
         return
     }
     if (santa.direction == 'left') {
         santa.img.src = 'santaIdleLeft.png'
         santa.frames = 16
-        santa.direction = 'right'
+
         return
 
     }

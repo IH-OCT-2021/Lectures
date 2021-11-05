@@ -5,9 +5,10 @@ const ctx = canvas.getContext('2d')
 
 const santaImg = new Image()
 santaImg.src = `santaIdleLeft.png`
+
+santaImg.src = `santaWalkLeft.png`
+santaImg.src = `santaWalk.png`
 santaImg.src = `santaIdle.png`
-// santaImg.src = `santaWalkLeft.png`
-// santaImg.src = `santaWalk.png`
 santaImg.onload = () => { }
 
 
@@ -21,10 +22,15 @@ let santa = {
     y: 100,
     w: (santaImg.width / 16) * .5,
     h: santaImg.height * .5,
-    direction: 'right'
+    direction: 'right',
+    frames: 16,
+    img: santaImg
 }
 
-let x = 0
+
+
+
+
 //Game Engine 
 function animate() {
     //This causes the loop
@@ -39,22 +45,22 @@ function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     //Resets sprite so it goes backs to beginning when reaches end. 
-    if (sx >= (santaImg.width - santaImg.width / 16)) {
+    if (sx >= (santa.img.width - santa.img.width / santa.frames)) {
         sx = 0
     }
     //It it controls the speed of how fast its going through the sheet
     if (counter % 5 === 0) {
-        sx += santaImg.width / 16
+        sx += santa.img.width / santa.frames
     }
 
     //Draws the picture
     //context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
     ctx.drawImage(
-        santaImg, //img 
+        santa.img, //img 
         sx,  //sx
         0,  //sy
-        santaImg.width / 16, //swidth
-        santaImg.height, //sheight
+        santa.img.width / santa.frames, //swidth
+        santa.img.height, //sheight
         santa.x, //x
         santa.y, //y
         santa.w, //width
@@ -68,56 +74,44 @@ function animate() {
 animate()
 
 
-
 function swapSanta() {
+
     for (let key in keys) {
-        console.log(key, keys[key])
-        if (key === "ArrowLeft" && keys[key]) { //If he is running 
-            if (santa.direction == 'right') {
-                santaImg.src = 'santaIdleLeft.png'
-                santa.direction = 'left'
+        if (key === "ArrowLeft") {
+
+            if (keys[key]) {
+                santa.img.src = 'santaWalkLeft.png'
+                santa.frames = 13
+                santa.x -= 5
             }
-            santa.x -= 5
+        }
+        if (key === "ArrowRight") {
+            if (keys[key]) {
+                santa.img.src = 'santaWalk.png'
+                santa.x += 5
+                santa.frames = 13
+            }
         }
 
-        if (key === "ArrowRight" && keys[key]) {//if he is running 
-            if (santa.direction == 'left') {
-                santaImg.src = 'santaIdle.png'
-                santa.direction = 'right'
-            }
-            santa.x += 5
-        }
     }
 }
 
-// window.onkeydown = function (e) {
-//     switch (e.key) {
-//         case 'ArrowUp':
-//             break;
-//         case 'ArrowLeft':
-//             if(keys['left']){
-//                 santa.direction == 'right' ? santaImg.src = 'santaIdleLeft.png' : null
-
-//             } else {
-
-//                 santa.direction == 'right' ? santaImg.src = 'santaIdleLeft.png' : null
-//             }
-//             santa.direction = 'left'
-//             santa.x -= 5
-//             break;
-//         case 'ArrowRight':
-//             santa.direction == 'left' ? santaImg.src = 'santaIdle.png' : null
-//             santa.direction = 'right'
-//             santa.x += 5
-//             break;
-//         case 'ArrowDown':
-//             break;
-//     }
-// }
-
-
 window.onkeyup = function (e) {
     keys[e.key] = false;
+    if (santa.direction == 'right') {
+        santa.img.src = 'santaIdle.png'
+        santa.frames = 16
+        santa.direction = 'left'
+        return
+    }
+    if (santa.direction == 'left') {
+        santa.img.src = 'santaIdleLeft.png'
+        santa.frames = 16
+        santa.direction = 'right'
+        return
+
+    }
+
 }
 
 window.onkeydown = function (e) {

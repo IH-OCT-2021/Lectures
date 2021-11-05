@@ -78,7 +78,6 @@ function swapSanta() {
 
     for (let key in keys) {
         if (key === "ArrowLeft") {
-
             if (keys[key]) {
                 santa.img.src = 'santaWalkLeft.png'
                 santa.frames = 13

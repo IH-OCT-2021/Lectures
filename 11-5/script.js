@@ -98,13 +98,13 @@ function swapSanta() {
 
 window.onkeyup = function (e) {
     keys[e.key] = false;
-    if (santa.direction == 'right' && e.key == 'ArrowRight') {
+    if (santa.direction == 'right') {
         santa.img.src = 'santaIdle.png'
         santa.frames = 16
         santa.direction = 'left'
         return
     }
-    if (santa.direction == 'left' && e.key == 'ArrowLeft') {
+    if (santa.direction == 'left') {
         santa.img.src = 'santaIdleLeft.png'
         santa.frames = 16
         santa.direction = 'right'

@@ -20,6 +20,7 @@ let hero = {
 
 
 let hulk = new Image()
+//./images/car.png 
 hulk.src = 'https://i.pinimg.com/originals/d7/85/9a/d7859a2b7f23a50f5d41181736ddf037.png'
 hulk.onload = () => {
     ctx.drawImage(hulk, 0, 0, 150, 150)
